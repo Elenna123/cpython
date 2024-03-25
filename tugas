@@ -1,0 +1,55 @@
+#include <QApplication>
+#include <QWidget>
+#include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
+
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+
+    // Create the main window
+    QWidget window;
+    window.setWindowTitle("Form Biodata");
+    window.setGeometry(100, 100, 400, 200);
+
+    // Create form elements
+    QLabel *label = new QLabel(&window);
+    label->setText("Enter your name:");
+    label->setGeometry(20, 20, 100, 30);
+
+    // Create form elements
+    QLabel *label = new QLabel(&window);
+    label->setText("Enter your Agama:");
+    label->setGeometry(20, 20, 100, 30);
+
+    // Create form elements
+    QLabel *label = new QLabel(&window);
+    label->setText("Enter your Umur:");
+    label->setGeometry(20, 20, 100, 30);
+
+    // Create form elements
+    QLabel *label = new QLabel(&window);
+    label->setText("Enter your Tanggal Lahir:");
+    label->setGeometry(20, 20, 100, 30);
+
+    QLineEdit *lineEdit = new QLineEdit(&window);
+    lineEdit->setGeometry(130, 20, 200, 30);
+
+    QPushButton *button = new QPushButton("Submit", &window);
+    button->setGeometry(150, 70, 100, 30);
+
+    // Connect button click signal to a slot
+    QObject::connect(button, &QPushButton::clicked, [&]() {
+        QString name = lineEdit->text();
+        QLabel *resultLabel = new QLabel(&window);
+        resultLabel->setText("Hello, " + name + Agama + Umur + Tanggal Lahir "!");
+        resultLabel->setGeometry(20, 120, 200, 30);
+        resultLabel->show();
+    });
+
+    // Show the window
+    window.show();
+
+    // Run the application
+    return app.exec();
+}
